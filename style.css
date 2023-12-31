@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #111;
+}
+
+.scan {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.scan .code {
+    position: relative;
+    width: 250px;
+    height: 250px;
+}
+
+.code div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.code div svg {
+    height: 250px;
+    width: 250px;
+}
+
+.qrcode {
+    height: 100%;
+    width: 100%;
+}
+
+.qrcode-after {
+    height: 100%;
+    width: 100%;
+    animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+
+    0%,
+    100% {
+        height: 0;
+    }
+
+    50% {
+        height: 100%;
+    }
+}
+
+.code::before {
+    content: '';
+    position: absolute;
+    /* inset: 20px; */
+    width: 100%;
+    height: 2px;
+    background: #35fd5c;
+    filter: drop-shadow (00 20px #35fd5c) drop-shadow (00 60px #35fd5c);
+    animation: animate 4s ease-in-out infinite;
+    animation:  4s animateLine ease-in-out infinite;
+}
+
+@keyframes animateLine {
+    0%,
+    100% {
+        top: 0;
+    }
+    50% {
+        top: 100%;
+    }
+}
+
+.border {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url(border.png);
+    height: 280px;
+    width: 280px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 0 20px #ffffff3b) drop-shadow(0 0 60px #ffffff3b);
+    animation: animateText 1s linear infinite;
+}
+
+.scan h3 {
+    text-transform: capitalize;
+    font-size: 1.2em;
+    position: absolute;
+    bottom: -60px;
+    color: #fff;
+    letter-spacing: 2px;
+    filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 60px #fff);
+    animation: animateText 1s steps(1) infinite;
+}
+
+@keyframes animateText {
+    0%,
+    100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
